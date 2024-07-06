@@ -1,0 +1,46 @@
+# Datatype for the column arrival_date is changed to date type of YYYY-MM-DD format in the csv file
+
+# Q1
+select count(*) as Total_Reservations from hotel;
+
+# Q2
+select type_of_meal_plan, count(*) as count from hotel group by type_of_meal_plan order by count desc limit 1;
+
+# Q3
+select avg(avg_price_per_room) as Avg_Price_with_Children from hotel where no_of_children > 0;
+
+# Q4
+select count(*) as Reservations_in_2018 from hotel where year(arrival_date) = 2018;
+
+# Q5
+select room_type_reserved, count(*) as count from hotel group by room_type_reserved order by count desc limit 1;
+
+# Q6
+select count(*) as Weekend_Reservations from hotel where no_of_weekend_nights > 0;
+
+# Q7
+select max(lead_time) as Highest_Lead_Time, min(lead_time) as Lowest_Lead_Time from hotel;
+
+# Q8
+select market_segment_type, count(*) as count from hotel group by market_segment_type order by count desc limit 1;
+
+# Q9
+select count(booking_status) as Confirmed_Reservations from hotel where booking_status = 'Not_Canceled';
+
+# Q10
+select sum(no_of_adults) as Total_Adults, sum(no_of_children) as Total_Children from hotel;
+
+# Q11
+select avg(no_of_weekend_nights) as Avg_Weekend_Nights_with_Children from hotel where no_of_children > 0;
+
+# Q12
+select month(arrival_date) as month, count(*) as count from hotel group by month order by month;
+
+# Q13
+select room_type_reserved, avg(no_of_weekend_nights + no_of_week_nights) as Avg_Nights from hotel group by room_type_reserved;
+
+# Q14
+select room_type_reserved, count(*) as count, avg(avg_price_per_room) as avg_price from hotel where no_of_children > 0 group by room_type_reserved order by count desc limit 1;
+
+# Q15
+select market_segment_type, avg(avg_price_per_room) as Highest_Avg_Price_per_room from hotel group by market_segment_type order by Highest_Avg_Price_per_room desc limit 1;
